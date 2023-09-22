@@ -4,11 +4,14 @@
  */
 package examen2p2_juanflores;
 
+import java.awt.SecondaryLoop;
+import java.io.Serializable;
+
 /**
  *
  * @author JD
  */
-public class Usuario {
+public class Usuario implements Serializable{
     private String username;
     private String contraseña;
     private int edad;
