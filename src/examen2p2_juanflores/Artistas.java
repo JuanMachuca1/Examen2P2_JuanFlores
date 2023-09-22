@@ -5,6 +5,7 @@
 package examen2p2_juanflores;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class Artistas extends Usuario{
@@ -50,5 +51,11 @@ public class Artistas extends Usuario{
         return nombreArtistico;
     }
     
+    
+    
+    public void edad(int edad){
+        
+        
+    }
     
 }

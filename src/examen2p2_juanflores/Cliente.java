@@ -5,6 +5,7 @@
 package examen2p2_juanflores;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class Cliente extends Usuario     {
@@ -49,5 +50,9 @@ public class Cliente extends Usuario     {
         return super.getUsername();
     }
     
+    public void edad(int edad){
+        
+        
+    }
     
 }
