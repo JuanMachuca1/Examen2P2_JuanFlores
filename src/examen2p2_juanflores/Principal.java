@@ -4,13 +4,20 @@
  */
 package examen2p2_juanflores;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -723,6 +730,28 @@ public class Principal extends javax.swing.JFrame {
         }
         
         cb_lanza.setModel(modelo);
+        String brr="";
+        
+        try {
+             File arc = new File("/lanzamientos.txt");
+        
+        
+            FileWriter fw = new FileWriter(arc);
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            
+             bw.write(brr);
+
+            bw.flush();
+            fw.close();
+            bw.close();
+            
+        } catch (Exception e) {
+        }
+       
+        
+        
+        
     }//GEN-LAST:event_btn_lanzamientoMouseClicked
 
     private void btn_cancionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancionMouseClicked
