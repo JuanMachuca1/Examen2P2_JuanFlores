@@ -25,7 +25,13 @@ public class Principal extends javax.swing.JFrame {
     Usuario user;
     Cliente client;
     Artistas artist;
+    Lanzamiento lanza;
+    Cancion cancion;
+    Album alb;
     ArrayList<Usuario>usuarios = new ArrayList();
+    ArrayList<Cancion>cancioness = new ArrayList();
+    ArrayList<Single>singles = new ArrayList();
+    ArrayList<Lanzamiento>lanzas = new ArrayList();
     
     public Principal() {
         initComponents();
@@ -45,6 +51,13 @@ public class Principal extends javax.swing.JFrame {
         tp_artista = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        txt_tit = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txt_fechaCrear = new javax.swing.JTextField();
+        btn_lanzamiento = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         tp_cliente = new javax.swing.JDialog();
@@ -52,6 +65,13 @@ public class Principal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
+        canciones = new javax.swing.JDialog();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txt_titulo = new javax.swing.JTextField();
+        txt_tiempo = new javax.swing.JTextField();
+        btn_cancion = new javax.swing.JButton();
+        btn_finalizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -63,22 +83,82 @@ public class Principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         cb_users = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_iniciar = new javax.swing.JButton();
         txt_nombreArtistico = new javax.swing.JTextField();
         btn_crearUsuario = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        txt_contra = new javax.swing.JTextField();
+
+        jLabel8.setText("titulo");
+
+        txt_tit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_titActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("fecha de creacion");
+
+        btn_lanzamiento.setText("crear lanzamiento");
+        btn_lanzamiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_lanzamientoMouseClicked(evt);
+            }
+        });
+
+        jButton1.setText("Single");
+
+        jLabel12.setText("ALBUM");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 869, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 343, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(258, 258, 258))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_fechaCrear))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(57, 57, 57)
+                                .addComponent(txt_tit, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(btn_lanzamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 543, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txt_tit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txt_fechaCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                .addComponent(btn_lanzamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
         );
 
-        jTabbedPane1.addTab("Crear lista de Reproduccion", jPanel1);
+        jTabbedPane1.addTab("crear lanzamiento", jPanel1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -167,6 +247,63 @@ public class Principal extends javax.swing.JFrame {
             .addComponent(jTabbedPane2)
         );
 
+        jLabel10.setText("titulo");
+
+        jLabel11.setText("tiempo");
+
+        btn_cancion.setText("agregar cancion");
+        btn_cancion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_cancionMouseClicked(evt);
+            }
+        });
+
+        btn_finalizar.setText("Finalizar");
+
+        javax.swing.GroupLayout cancionesLayout = new javax.swing.GroupLayout(canciones.getContentPane());
+        canciones.getContentPane().setLayout(cancionesLayout);
+        cancionesLayout.setHorizontalGroup(
+            cancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cancionesLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(cancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cancionesLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(27, 27, 27)
+                        .addComponent(txt_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(cancionesLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(cancionesLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(btn_cancion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                .addComponent(btn_finalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
+        );
+        cancionesLayout.setVerticalGroup(
+            cancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cancionesLayout.createSequentialGroup()
+                .addGroup(cancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cancionesLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cancionesLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(51, 51, 51)
+                .addGroup(cancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(txt_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addGroup(cancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_finalizar, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(btn_cancion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(88, 88, 88))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -203,7 +340,12 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel6.setText("USER");
 
-        jButton1.setText("Iniciar Sesion");
+        btn_iniciar.setText("Iniciar Sesion");
+        btn_iniciar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_iniciarMouseClicked(evt);
+            }
+        });
 
         txt_nombreArtistico.setEnabled(false);
 
@@ -215,25 +357,20 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setText("CONTRA");
+
+        txt_contra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_contraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(cb_users, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,22 +379,40 @@ public class Principal extends javax.swing.JFrame {
                                 .addGap(32, 32, 32)
                                 .addComponent(txt_nombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(artistaCheck)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addGap(47, 47, 47)
-                                    .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(35, 35, 35)
-                                    .addComponent(txt_contraseña))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addGap(50, 50, 50)
-                                    .addComponent(txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(47, 47, 47)
+                                        .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(35, 35, 35)
+                                        .addComponent(txt_contraseña))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(50, 50, 50)
+                                        .addComponent(txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                                .addComponent(btn_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(btn_crearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cb_users, 0, 163, Short.MAX_VALUE)
+                            .addComponent(txt_contra))))
+                .addGap(53, 53, 53))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(btn_crearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -269,12 +424,19 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cb_users, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6)))
-                .addGap(32, 32, 32)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_contra, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -402,6 +564,103 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cb_usersMouseClicked
 
+    private void txt_contraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_contraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_contraActionPerformed
+
+    private void btn_iniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_iniciarMouseClicked
+       
+        int usuario = cb_users.getSelectedIndex();
+        
+        
+        for (int i = 0; i < usuarios.size(); i++) {
+            if(usuarios.get(i)==usuarios.get(usuario)){
+           
+                if(usuarios.get(usuario) instanceof Artistas){
+                   if(txt_contra.getText() == null ? usuarios.get(usuario).getContraseña() == null : txt_contra.getText().equals(usuarios.get(usuario).getContraseña())){
+                    JOptionPane.showMessageDialog(this, "contra god");
+                       this.setVisible(false);
+        
+                        tp_artista.pack();    
+                        tp_artista.setModal(true);
+                        tp_artista.setLocationRelativeTo(this);
+                        tp_artista.setVisible(true);
+                    
+                }else{
+                    JOptionPane.showMessageDialog(this, "contra erronea");
+                } 
+                }
+                
+                if(usuarios.get(usuario) instanceof Cliente){
+                   if(txt_contra.getText() == null ? usuarios.get(usuario).getContraseña() == null : txt_contra.getText().equals(usuarios.get(usuario).getContraseña())){
+                    JOptionPane.showMessageDialog(this, "contra god");
+                     this.setVisible(false);
+        
+                    tp_cliente.pack();    
+                    tp_cliente.setModal(true);
+                    tp_cliente.setLocationRelativeTo(this);
+                    tp_cliente.setVisible(true);
+
+                }else{
+                    JOptionPane.showMessageDialog(this, "contra erronea");
+                } 
+                }
+                
+           
+             }
+        }
+        
+    }//GEN-LAST:event_btn_iniciarMouseClicked
+
+    private void txt_titActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_titActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_titActionPerformed
+
+    private void btn_lanzamientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lanzamientoMouseClicked
+        tp_cliente.pack();    
+        tp_cliente.setModal(true);
+        tp_cliente.setLocationRelativeTo(this);
+        tp_cliente.setVisible(true);
+        
+         String titulo = txt_tit.getText();
+        String fecha = txt_fechaCrear.getText();
+        String tituloCancion = txt_titulo.getText();
+        double segundos = Double.parseDouble(txt_tiempo.getText());
+        
+        lanza = new Lanzamiento(titulo, fecha, 0);
+        
+        alb = new Album(0, titulo, fecha, 0);
+        
+        
+        lanzas.add(lanza);
+    }//GEN-LAST:event_btn_lanzamientoMouseClicked
+
+    private void btn_cancionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancionMouseClicked
+        
+       
+         String titulo = txt_tit.getText();
+        String fecha = txt_fechaCrear.getText();
+        String tituloCancion = txt_titulo.getText();
+        double segundos = Double.parseDouble(txt_tiempo.getText());
+        
+        
+        for (int i = 0; i < lanzas.size(); i++) {
+            if(lanzas.get(i) instanceof Album){
+                
+            }
+        }
+        cancion = new Cancion(fecha, segundos, lanza);
+        cancioness.add(cancion); 
+        
+    
+        
+        
+       
+        
+        
+        
+    }//GEN-LAST:event_btn_cancionMouseClicked
+
     public void fillCB(){
         File Archivo;
         FileInputStream fr ;
@@ -478,15 +737,26 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox artistaCheck;
+    private javax.swing.JButton btn_cancion;
     private javax.swing.JButton btn_crearUsuario;
+    private javax.swing.JButton btn_finalizar;
+    private javax.swing.JButton btn_iniciar;
+    private javax.swing.JButton btn_lanzamiento;
+    private javax.swing.JDialog canciones;
     private javax.swing.JComboBox<String> cb_users;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -497,9 +767,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JDialog tp_artista;
     private javax.swing.JDialog tp_cliente;
+    private javax.swing.JTextField txt_contra;
     private javax.swing.JTextField txt_contraseña;
     private javax.swing.JSpinner txt_edad;
+    private javax.swing.JTextField txt_fechaCrear;
     private javax.swing.JTextField txt_nombreArtistico;
+    private javax.swing.JTextField txt_tiempo;
+    private javax.swing.JTextField txt_tit;
+    private javax.swing.JTextField txt_titulo;
     private javax.swing.JTextField txt_username;
     // End of variables declaration//GEN-END:variables
 }
