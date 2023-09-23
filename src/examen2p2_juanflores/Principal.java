@@ -835,12 +835,12 @@ public class Principal extends javax.swing.JFrame {
             }
             
             
-            
-            
             bw.close();
             fr.close();
             
-            cb_users.setModel(modelo); 
+            cb_users.setModel(modelo);  
+            
+           
             
         } catch (Exception e) {
     
